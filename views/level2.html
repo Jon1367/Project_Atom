@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="medium-6 large-8 small-12 large-centered medium-centered columns">
+        <h1 class="white" id="what">Make A Baking Soda Molecule</h1>
+        <div ng-repeat="ans in answers track by $index" ><h3 class="answer left white">{{ans}}</h3></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+        <input ng-model="searchText" placeholder="Search by symbol!">
+        <hr class="style-two">
+    </div>
+</div>    
+
+<div class="row">
+    <div class="large-6 columns large-centered">
+        <button class="button" ng-click="check()">Submit Answers</button>
+        <button class="button" data-reveal-id="myModal">Explain</button>
+        <button class="button" ng-click="clear()">Clear</button>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="medium-12 large-12 small-12 columns">
+        
+        <div class="elements hvr-wobble-horizontal" ng-repeat="item in elements | filter:searchText" ng-click="selectedElement(item.$id)">
+
+            <p class="elementHeading symbols">{{item.atomicNumber}}</p>            
+            <p class="elementHeading symbols">{{item.$id}}</p>
+            <p class="elementSymbol ">{{item.symbol}}</p>
+            <p class="elementHeading symbols">{{item.atomicMass}}</p>
+
+        </div>
+    </div>
+</div>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h1 style="text-align: center;">NaHCO<sub>3</sub></h1>
+  <p style="text-align: center;">Baking soda does not only have benefits around the kitchen, but is also used in beauty and health. It can be used as a cleaning and whitening agent, and is a great deodorizer as well.
+</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

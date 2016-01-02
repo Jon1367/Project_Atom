@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="medium-7 large-7 small-12 large-centered medium-centered columns">
+        <h1 class="white" id="what">Make A Water Molecule!</h1>
+        <div ng-repeat="ans in answers track by $index" ><h3 class="answer left white">{{ans}}</h3></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+        <input ng-model="searchText" placeholder="Search by symbol!">
+        <hr class="style-two">
+    </div>
+</div>    
+    
+<div class="row">
+    <div class="large-6 columns large-centered">
+        <button class="button" ng-click="check()">Submit Answers</button>
+        <button class="button" data-reveal-id="myModal">Explain</button>
+        <button class="button" ng-click="clear()">Clear</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="medium-12 large-12 small-12 columns">
+        
+        <div class="elements hvr-wobble-horizontal" ng-repeat="item in elements | filter:searchText" ng-click="selectedElement(item.$id)">
+
+            <p class="elementHeading symbols">{{item.atomicNumber}}</p>            
+            <p class="elementHeading symbols">{{item.$id}}</p>
+            <p class="elementSymbol ">{{item.symbol}}</p>
+            <p class="elementHeading symbols">{{item.atomicMass}}</p>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h1 style="text-align: center;">H<sub>2</sub>0</h1>
+  <p style="text-align: center;">What does H<sub>2</sub>O mean? Each water molecule is made of two hydrogen atoms and one oxygen atom, thus there are two "H" atoms and one "O". The atoms are joined by covalent bonding, meaning that they share electrons (as opposed to ionic bonding, in which atoms completely transfer electrons). On the right is an image of water's molecular structure.
+</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

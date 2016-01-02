@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="medium-7 large-7 small-12 large-centered columns">
+        <h1 class="text-center white" id="what">Make a Salt Molecule</h1>
+        <div ng-repeat="ans in answers track by $index" ><h3 class="answer lef white">{{ans}}</h3></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+        <input ng-model="searchText" placeholder="Search by symbol!">
+        <hr class="style-two">
+    </div>
+</div>    
+    
+    <div class="row">
+    <div class="large-6 columns large-centered">
+        <button class="button" ng-click="check()">Submit Answers</button>
+        <button class="button" data-reveal-id="myModal">Explain</button>
+        <button class="button" ng-click="clear()">Clear</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="medium-12 large-12 small-12 columns">
+        
+        <div class="elements hvr-wobble-horizontal" ng-repeat="item in elements | filter:searchText" ng-click="selectedElement(item.$id)">
+
+            <p class="elementHeading symbols">{{item.atomicNumber}}</p>            
+            <p class="elementHeading symbols">{{item.$id}}</p>
+            <p class="elementSymbol ">{{item.symbol}}</p>
+            <p class="elementHeading symbols">{{item.atomicMass}}</p>
+
+        </div>
+    </div>
+</div>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h1 style="text-align: center;">NaCl</h1>
+  <p style="text-align: center;">Salt is used not only in cooking, but in cleaning as well. In fact, it is said that there are more than 14,000 specific uses for salt all in all.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

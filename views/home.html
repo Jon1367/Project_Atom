@@ -1,0 +1,31 @@
+
+<div class="row">
+    <h1 class="text-center" id="pHeader">Make a Level</h1>
+    <div><label for="elememt"><h2>Search:</h2></label><input type="text" name="element" ng-model="dataInput"/></div>
+
+
+    <div class="medium-3 columns">
+    
+        <div id="atomBox" class="combinedElements" data-drop="true" data-jqyoui-options ng-model="data2" jqyoui-droppable style='height:50px;'>
+
+        <div>
+                <div class="button chosenElements" ng-repeat="item in elementArray">
+                    {{item}}
+                </div>
+          </div>
+          
+        </div>
+        <div class="button text-center clearButton" ng-click="clearElement()">Clear Elements</div>
+    </div>
+
+    <div class="medium-9 columns" ng-model="data">
+        <div id="elements" class="button medium-3"  ng-repeat="item in data | filter: dataInput">
+            <div ng-click="addedElement(item.symbol)">
+                <p class="atomic left clear"><small>{{item.atomicMass}}</small></p>
+                <p class="atomic right clear text-right">{{item.atomicNumber}}</p>
+                <h2>{{item.symbol}}</h2>
+                <p class="symbols">{{item.$id}}</p>
+            </div>
+        </div>
+    </div>
+</div>
